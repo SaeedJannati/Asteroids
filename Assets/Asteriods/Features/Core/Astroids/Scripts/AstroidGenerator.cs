@@ -12,7 +12,8 @@ public class AstroidGenerator : MonoBehaviour
    [SerializeField] private AstroidGeneratorModel config;
    private Transform mTransform;
    private const float deltaPos = 200.0f;
-
+   [SerializeField]  private int astroidCount;
+  [SerializeField] private int astroidsAlive;
    #endregion
 
    #region Monobehaviour callBacks
@@ -32,10 +33,7 @@ public class AstroidGenerator : MonoBehaviour
 
    #region Methods
 
-   public void OnAstroidDeath()
-   {
-      StartCoroutine(CreateNewAstroidWithSomeDelay());
-   }
+
 
    void CreateAstroid()
    {
@@ -60,10 +58,57 @@ public class AstroidGenerator : MonoBehaviour
             (initPos,speed,rotSpeed,isrotating,config.spriteContainer.GetRandomSprite(),size);
       }
 
+      astroidsAlive++;
 
    }
 
-   Vector3 GetRandomPosOutSideScreen()
+  public void  CreateAstroids(Vector3 positon, AstroidSize Size,int count,Sprite sprite)
+   {
+      var speed = Vector2.zero;
+      speed.x = Random.Range(config.minSpeed, config.maxSpeed);
+      speed.y = Random.Range(config.minSpeed, config.maxSpeed);
+      var currentSpeed = speed;
+      var deltaAngle = Mathf.PI * 2.0f / count;
+      var isrotating = false;
+      var rotSpeed = 0.0f;
+     
+      if (Random.Range(0, 100) <= config.rotatingChance)
+      {
+         isrotating = true;
+         rotSpeed = Random.Range(config.minRotSpeed, config.maxRotSpeed);
+      }
+
+    
+      var size = (int)Size-1;
+      
+      var initPos = positon;
+      for (int i = 0; i < count; i++)
+      {
+         currentSpeed = RotateVectorByAngle(speed,i * deltaAngle);
+         if (ObjectPool.Instantiate(config.astroidsData[size].astroidPrefab, mTransform).TryGetComponent
+            (out AstroidMovement astroid))
+         {
+            astroid.Initialize
+               (initPos, currentSpeed, rotSpeed, isrotating,sprite , size);
+         }
+         astroidsAlive++;
+      }
+   }
+
+  Vector2 RotateVectorByAngle(Vector2 vector,float angle)
+  {
+     if (angle == 0)
+        return vector;
+     var length = vector.magnitude;
+     var outPut = Vector2.one;
+     var initAngle = Mathf.Atan(vector.y / vector.x);
+     angle += initAngle;
+     outPut.x = length * (Mathf.Cos(angle));
+     outPut.y=length * (Mathf.Sin(angle));
+     return outPut;
+  }
+
+  Vector3 GetRandomPosOutSideScreen()
    {
       var posX = Random.Range
          (MainContainer.MovementConfinment.LeftLimit, MainContainer.MovementConfinment.RitghLimit);
@@ -98,6 +143,19 @@ public class AstroidGenerator : MonoBehaviour
       return  new Vector3(posX,posY,0);
    }
 
+   public AstroidData GetAstroidData(AstroidSize size)
+   {
+      return config.astroidsData[(int) size];
+   }
+
+
+   public void OnAstroidDie()
+   {
+      astroidsAlive--;
+      if (astroidsAlive < astroidCount)
+         StartCoroutine(CreateNewAstroidWithSomeDelay());
+   }
+
    #endregion
 
    #region  Coroutines
@@ -112,12 +170,15 @@ public class AstroidGenerator : MonoBehaviour
    IEnumerator PopulateAstroids()
    {
       var delay=new WaitForSeconds(1.0f);
+      astroidCount = 0;
       for (int i = 0; i < config.initAstroidCount; i++)
       {
          CreateAstroid();
+         astroidCount++;
          yield return delay;
       }
 
+    
       var periodDelay = new WaitForSeconds(config.increasePeriodInSeconds);
       while (true)
       {
@@ -125,6 +186,7 @@ public class AstroidGenerator : MonoBehaviour
          for (int i = 0; i < config.initAstroidCount;i++)
          {
             CreateAstroid();
+            astroidCount++;
             yield return delay;
          }
       }

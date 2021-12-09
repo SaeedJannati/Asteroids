@@ -15,18 +15,18 @@ MonoBehaviour:
   spriteContainer: {fileID: 11400000, guid: 96248a96fd4dae640a4160c21cb7c7ab, type: 2}
   astroidsData:
   - size: 0
-    hp: 1
+    hp: 0
     astroidCountToCreate: 0
     astroidPrefab: {fileID: 2521194221926233771, guid: c171c9f0eb6436349bd46b1f4918ec60,
       type: 3}
   - size: 1
-    hp: 1
+    hp: 0
     astroidCountToCreate: 2
     astroidPrefab: {fileID: 5326665894153464322, guid: fbe80edaa3f71c540918e1dad86e6e09,
       type: 3}
   - size: 2
-    hp: 1
-    astroidCountToCreate: 2
+    hp: 0
+    astroidCountToCreate: 3
     astroidPrefab: {fileID: 9047476247649902655, guid: dfba21dcebf4fe540ab3f5ae0cbcf8ef,
       type: 3}
   minSpeed: 0.5

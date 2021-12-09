@@ -20,7 +20,9 @@
                   <e p="AstroidGenerator.cs" t="Include" />
                   <e p="AstroidGeneratorModel.cs" t="Include" />
                   <e p="AstroidGeneratorSpriteContainer.cs" t="Include" />
+                  <e p="AstroidHealth.cs" t="Include" />
                   <e p="AstroidMovement.cs" t="Include" />
+                  <e p="IDamageable.cs" t="Include" />
                 </e>
               </e>
               <e p="Auxilary" t="Include">

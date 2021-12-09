@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using AstroidFeatures;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,6 +21,11 @@ public class AstroidGeneratorSpriteContainer : ScriptableObject
  {
   var randIndex = Random.Range(0, AstroidSprites.Count);
   return AstroidSprites[randIndex];
+ }
+
+ public Sprite GetSpriteBySize(int size)
+ {
+  return AstroidSprites[size];
  }
 
  #endregion

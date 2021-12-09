@@ -433,7 +433,7 @@ MonoBehaviour:
   spaceShipMovementLogic: {fileID: 1342963415}
   playerInputLogic: {fileID: 196983654}
   movementConfinemetLogic: {fileID: 1247131313}
-  astroidGenerator: {fileID: 0}
+  astroidGenerator: {fileID: 453290308}
 --- !u!4 &668466472
 Transform:
   m_ObjectHideFlags: 0
@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 1342963415}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

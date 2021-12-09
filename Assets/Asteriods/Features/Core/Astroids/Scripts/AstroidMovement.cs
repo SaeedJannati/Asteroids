@@ -13,7 +13,6 @@ public class AstroidMovement : ConfinedMovementBase
   [SerializeField]  private float ySpeed;
   [SerializeField]  private float rotSpeed;
   [SerializeField]   private bool isRotating;
-    [SerializeField]  private AstroidSize size;
     
 
     #endregion
@@ -29,7 +28,11 @@ public class AstroidMovement : ConfinedMovementBase
         ySpeed = speed.y;
         rotSpeed = RotSpeed;
         mainRenderer.sprite = sprite;
-        size = (AstroidSize) Size;
+      
+        if(TryGetComponent(out AstroidHealth health))
+        {
+            health.Initialize((AstroidSize) Size,sprite);
+        }
         StartCoroutine(MoveCoroutine());
     }
 

@@ -35,7 +35,7 @@ namespace AstroidFeatures
     public class AstroidData
     {
         public AstroidSize size;
-        public float hp;
+        public int hp;
         public int astroidCountToCreate;
         public GameObject astroidPrefab;
 
