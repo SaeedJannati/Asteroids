@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 7675a236fb766b94c84df4038f5f52e0, type: 3}
-    totalSpriteSurfaceArea: 305078
+    totalSpriteSurfaceArea: 296118
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -58,7 +58,7 @@ SpriteAtlas:
   - SpaceSHip3
   - SpaceShip01
   - SpaceShip2
-  - pngkey.com-bullet-png-21632
+  - Bullet
   - SpaceShp04
   m_Tag: SpaceShipAtlas
   m_IsVariant: 0

@@ -23,6 +23,7 @@ public class PlayerInputPc : MonoBehaviour, IMovementInput
     public Action ShootAction
     {
         get => shootAction;
+        set => shootAction = value;
     }
 
     #endregion
@@ -85,7 +86,7 @@ public class PlayerInputPc : MonoBehaviour, IMovementInput
 
     void CheckForShooting()
     {
-        if (Input.GetKeyDown(config.shootKey))
+        if (Input.GetKey(config.shootKey))
         {
             shootAction?.Invoke();
         }

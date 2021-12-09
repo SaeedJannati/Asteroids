@@ -6,7 +6,7 @@ using UnityEngine;
 public interface IMovementInput 
 {
     Vector2 Direction {  get; }
-    Action ShootAction { get; }
+    Action ShootAction { get; set; }
 
 
 }

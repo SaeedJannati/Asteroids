@@ -9,10 +9,13 @@ public class PlayerInputLogic : MonoBehaviour
 
   [SerializeField]private PlayerInputLogicModel config;
   private IMovementInput movementInput;
+  public static Action Shoot;
 
   #endregion
 
   #region  Monobehaviour Callbacks
+
+
 
   private void Start()
   {
@@ -20,7 +23,13 @@ public class PlayerInputLogic : MonoBehaviour
     if (inputObj.TryGetComponent(out movementInput))
     {
       MainContainer.InjectMovementInput(movementInput);
+      movementInput.ShootAction += Shoot;
     }
+  }
+
+  private void OnDestroy()
+  {
+    movementInput.ShootAction -= Shoot;
   }
 
   private void Update()

@@ -52,6 +52,14 @@
                   <e p="PlayerInputPcModel.cs" t="Include" />
                 </e>
               </e>
+              <e p="Shooting" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="Bullet.cs" t="Include" />
+                  <e p="BulletModel.cs" t="Include" />
+                  <e p="PlayerShoot.cs" t="Include" />
+                  <e p="PlayerShootModel.cs" t="Include" />
+                </e>
+              </e>
               <e p="SpaceShipMovement" t="Include">
                 <e p="Scripts" t="Include">
                   <e p="SpaceShipMevementModel.cs" t="Include" />
