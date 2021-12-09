@@ -3,26 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceShipMovementLogic : MonoBehaviour
+public class SpaceShipMovementLogic : ConfinedMovementBase
 {
    #region  Fields
 
   [SerializeField] private SpaceShipMevementModel config;
    private Vector3 currentSpeed=new Vector3();
 
-   private Transform mTrtansform=null;
 
-   private Vector3 position=new Vector3();
+   private Vector3 position;
+
+
+
+   private Quaternion destRot;
+   private Vector3 moveDirection;
    #endregion
 
-   #region Monbehaviour callbacks
-
-   private void Awake()
+   private void Start()
    {
-      mTrtansform = GetComponent<Transform>();
+      currentSpeed=Vector3.zero;
    }
-
-   #endregion
 
    #region Methods
 
@@ -31,6 +31,8 @@ public class SpaceShipMovementLogic : MonoBehaviour
    {
       CalculateSpeed(xAcceleration, yAcceleration);
       Move();
+      RotateTowardMoveDirection();
+      
    }
 
    void CalculateSpeed(float xAcceleration,float yAcceleration)
@@ -46,15 +48,25 @@ public class SpaceShipMovementLogic : MonoBehaviour
 
    void Move()
    {
-      position = mTrtansform.position;
+      // mTransform.Translate(currentSpeed * Time.deltaTime);
+      position = mTransform.position;
       position += currentSpeed * Time.deltaTime;
-      mTrtansform.position = position;
+      position.z = 0;
+      mTransform.position = position;
+      CheckIfOutsideScreen();
 
    }
 
-   void FixRotation()
+   void RotateTowardMoveDirection()
    {
-      
+
+   moveDirection = currentSpeed.normalized;
+   destRot = Quaternion.LookRotation(Vector3.forward, moveDirection);
+   mTransform.rotation =
+         Quaternion.RotateTowards(
+            mTransform.rotation, 
+            destRot, 
+            config.roataionSpeed * Time.deltaTime);
    }
 
    #endregion
@@ -64,4 +76,6 @@ public class SpaceShipMovementLogic : MonoBehaviour
 
 
    #endregion
+
+
 }

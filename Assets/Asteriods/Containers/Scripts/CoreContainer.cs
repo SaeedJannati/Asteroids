@@ -9,6 +9,7 @@ public class CoreContainer : MonoBehaviour
 
   [SerializeField] private SpaceShipMovementLogic spaceShipMovementLogic;
   [SerializeField] private PlayerInputLogic playerInputLogic;
+  [SerializeField] private MovementConfinementLogic movementConfinemetLogic;
 
   #endregion
 
@@ -27,6 +28,7 @@ public class CoreContainer : MonoBehaviour
   {
     MainContainer.InjectSpaceShipMovementLogic(spaceShipMovementLogic);
     MainContainer.InjectPlayerInputLogic(playerInputLogic);
+    MainContainer.InjectMoveConfinment(movementConfinemetLogic);
   }
 
   #endregion

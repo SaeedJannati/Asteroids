@@ -16,3 +16,4 @@ MonoBehaviour:
   maxSpeedY: 8
   yAcceleration: 2
   xAcceleration: 2
+  roataionSpeed: 90

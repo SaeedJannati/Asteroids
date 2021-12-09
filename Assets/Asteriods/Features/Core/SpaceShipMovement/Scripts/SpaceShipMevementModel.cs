@@ -16,6 +16,7 @@ public class SpaceShipMevementModel : ScriptableObject
     public float yAcceleration;
     public float xAcceleration;
 
+    public float roataionSpeed;
     #endregion
 
     #region  Methods

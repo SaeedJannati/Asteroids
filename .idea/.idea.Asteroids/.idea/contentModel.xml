@@ -15,6 +15,13 @@
           </e>
           <e p="Features" t="Include">
             <e p="Core" t="Include">
+              <e p="Astroids" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="AstroidGenerator.cs" t="Include" />
+                  <e p="AstroidGeneratorModel.cs" t="Include" />
+                  <e p="AstroidMovement.cs" t="Include" />
+                </e>
+              </e>
               <e p="Auxilary" t="Include">
                 <e p="Scripts" t="Include">
                   <e p="FileCreator.cs" t="Include" />
@@ -25,6 +32,12 @@
               <e p="Dpad" t="Include">
                 <e p="Scripts" t="Include">
                   <e p="Dpad.cs" t="Include" />
+                </e>
+              </e>
+              <e p="MovementConfinement" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="ConfinedMovementBase.cs" t="Include" />
+                  <e p="MovementConfinementLogic.cs" t="Include" />
                 </e>
               </e>
               <e p="PlayerInput" t="Include">

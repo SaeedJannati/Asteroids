@@ -26,7 +26,7 @@ public class PlayerInputLogic : MonoBehaviour
   private void Update()
   {
     
-    MainContainer.SpaceShipMovementLogic.ApplyForce(movementInput.Direction.x,movementInput.Direction.y);
+    MainContainer.SpaceShipMovement.ApplyForce(movementInput.Direction.x,movementInput.Direction.y);
   }
 
   #endregion

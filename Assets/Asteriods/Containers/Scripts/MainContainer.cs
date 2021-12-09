@@ -6,31 +6,43 @@ public class MainContainer
 {
   #region  Fields
 
-  private static SpaceShipMovementLogic spaceShipMovementLogic;
+  private static SpaceShipMovementLogic _spaceShipMovement;
   private static IMovementInput movementInput;
-  private static PlayerInputLogic playerInputLogic;
+  private static PlayerInputLogic _playerInput;
+  private static MovementConfinementLogic movementConfinmentLogic;
+
 
   #endregion
 
   #region  properties
 
-  public static SpaceShipMovementLogic SpaceShipMovementLogic
+  public static SpaceShipMovementLogic SpaceShipMovement
   {
-      get =>spaceShipMovementLogic;
+      get =>_spaceShipMovement;
   }
 
-  public static PlayerInputLogic PlayerInputLogic
+  public static IMovementInput MovementInput
   {
-      get => playerInputLogic;
+      get => movementInput;
   }
-  public static IMovementInput MovementInput;
+
+  public static PlayerInputLogic PlayerInput
+  {
+      get => _playerInput;
+  }
+
+  public static MovementConfinementLogic MovementConfinment
+  {
+      get => movementConfinmentLogic;
+  }
+
   #endregion
 
   #region  Mehtodes
 
   public static void InjectSpaceShipMovementLogic(SpaceShipMovementLogic logic)
   {
-      spaceShipMovementLogic = logic;
+      _spaceShipMovement = logic;
   }
 
   public static void InjectMovementInput(IMovementInput input)
@@ -40,7 +52,12 @@ public class MainContainer
 
   public static void InjectPlayerInputLogic(PlayerInputLogic inputLogic)
   {
-      playerInputLogic = inputLogic;
+      _playerInput = inputLogic;
+  }
+
+  public static void InjectMoveConfinment(MovementConfinementLogic logic)
+  {
+      movementConfinmentLogic = logic;
   }
 
   #endregion
