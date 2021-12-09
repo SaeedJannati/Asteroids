@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a4e1441b9e5f540912d89dbc2c06d3, type: 3}
+  m_Name: AstroidSpriteContainer
+  m_EditorClassIdentifier: 
+  AstroidSprites:
+  - {fileID: 21300000, guid: 1458f4cf3c310924e948c290518ce9b8, type: 3}
+  - {fileID: 21300000, guid: cf042f206f51c254ebe0c02ef5ab51b9, type: 3}
+  - {fileID: 21300000, guid: 08af6bc340215ce4d94ad4488705c766, type: 3}

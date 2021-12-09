@@ -6,7 +6,7 @@ using UnityEngine;
 public class ConfinedMovementBase : MonoBehaviour
 {
     protected Transform mTransform;
-    [SerializeField] private SpriteRenderer mainRenderer;
+    [SerializeField] protected SpriteRenderer mainRenderer;
 
     private void Awake()
     {

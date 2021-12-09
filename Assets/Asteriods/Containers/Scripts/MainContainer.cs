@@ -10,6 +10,7 @@ public class MainContainer
   private static IMovementInput movementInput;
   private static PlayerInputLogic _playerInput;
   private static MovementConfinementLogic movementConfinmentLogic;
+  private static AstroidGenerator astroidGenerator;
 
 
   #endregion
@@ -36,6 +37,11 @@ public class MainContainer
       get => movementConfinmentLogic;
   }
 
+  public static AstroidGenerator AstroidGenerator
+  {
+      get => astroidGenerator;
+  }
+
   #endregion
 
   #region  Mehtodes
@@ -58,6 +64,11 @@ public class MainContainer
   public static void InjectMoveConfinment(MovementConfinementLogic logic)
   {
       movementConfinmentLogic = logic;
+  }
+
+  public static void InjectAstroidGenerator(AstroidGenerator generator)
+  {
+      astroidGenerator = generator;
   }
 
   #endregion

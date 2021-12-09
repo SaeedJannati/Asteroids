@@ -1,18 +1,52 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class AstroidGeneratorModel : MonoBehaviour
+using AstroidFeatures;
+[CreateAssetMenu(fileName = "AstroidGeneretorModel", menuName = "Asteriods/Astroid/Generator" )]
+public class AstroidGeneratorModel : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    #region Fields
+    public AstroidGeneratorSpriteContainer spriteContainer;
+   public List<AstroidData> astroidsData;
+    
+    public float minSpeed;
+    public float maxSpeed;
+
+    public int rotatingChance;
+
+    public float minRotSpeed;
+    public float maxRotSpeed;
+    public int initAstroidCount;
+    public int increasePeriodInSeconds;
+    public int increaseRate;
+
+    public float minDelayPeriod;
+    public float maxdelayPeriod;
+
+    #endregion
+
+
+}
+
+namespace AstroidFeatures
+{
+    [Serializable]
+    public class AstroidData
     {
-        
+        public AstroidSize size;
+        public float hp;
+        public int astroidCountToCreate;
+        public GameObject astroidPrefab;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    [Serializable]
+    public enum AstroidSize
     {
-        
+        SMALL=0,
+        MID,
+        LARGE,
+        END
     }
 }
