@@ -8,13 +8,13 @@ public class CoreContainer : MonoBehaviour
   #region fields
 
   [SerializeField] private SpaceShipMovementLogic spaceShipMovementLogic;
-
+  [SerializeField] private PlayerInputLogic playerInputLogic;
 
   #endregion
 
   #region MonobehaviourCallbacks
 
-  private void Start()
+  private void Awake()
   {
     InjectDependencies();
   }
@@ -26,6 +26,7 @@ public class CoreContainer : MonoBehaviour
   void InjectDependencies()
   {
     MainContainer.InjectSpaceShipMovementLogic(spaceShipMovementLogic);
+    MainContainer.InjectPlayerInputLogic(playerInputLogic);
   }
 
   #endregion

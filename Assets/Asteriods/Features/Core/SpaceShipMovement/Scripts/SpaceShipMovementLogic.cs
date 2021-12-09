@@ -7,7 +7,7 @@ public class SpaceShipMovementLogic : MonoBehaviour
 {
    #region  Fields
 
-   private SpaceShipMevementModel config;
+  [SerializeField] private SpaceShipMevementModel config;
    private Vector3 currentSpeed=new Vector3();
 
    private Transform mTrtansform=null;
@@ -48,8 +48,15 @@ public class SpaceShipMovementLogic : MonoBehaviour
    {
       position = mTrtansform.position;
       position += currentSpeed * Time.deltaTime;
+      mTrtansform.position = position;
+
+   }
+
+   void FixRotation()
+   {
       
    }
+
    #endregion
 
    #region Coroutines

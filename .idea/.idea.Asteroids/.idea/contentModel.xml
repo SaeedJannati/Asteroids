@@ -13,18 +13,34 @@
               <e p="MainContainer.cs" t="Include" />
             </e>
           </e>
-          <e p="Core" t="Include">
-            <e p="Auxilary" t="Include">
-              <e p="Scripts" t="Include">
-                <e p="FileCreator.cs" t="Include" />
-                <e p="ObjectPool.cs" t="Include" />
-                <e p="SmapleScript.cs" t="Include" />
+          <e p="Features" t="Include">
+            <e p="Core" t="Include">
+              <e p="Auxilary" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="FileCreator.cs" t="Include" />
+                  <e p="ObjectPool.cs" t="Include" />
+                  <e p="SmapleScript.cs" t="Include" />
+                </e>
               </e>
-            </e>
-            <e p="SpaceShipMovement" t="Include">
-              <e p="Scripts" t="Include">
-                <e p="SpaceShipMevementModel.cs" t="Include" />
-                <e p="SpaceShipMovementLogic.cs" t="Include" />
+              <e p="Dpad" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="Dpad.cs" t="Include" />
+                </e>
+              </e>
+              <e p="PlayerInput" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="IMovementInput.cs" t="Include" />
+                  <e p="PlayerInputLogic.cs" t="Include" />
+                  <e p="PlayerInputLogicModel.cs" t="Include" />
+                  <e p="PlayerInputPc.cs" t="Include" />
+                  <e p="PlayerInputPcModel.cs" t="Include" />
+                </e>
+              </e>
+              <e p="SpaceShipMovement" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="SpaceShipMevementModel.cs" t="Include" />
+                  <e p="SpaceShipMovementLogic.cs" t="Include" />
+                </e>
               </e>
             </e>
           </e>
