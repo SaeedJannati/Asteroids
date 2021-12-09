@@ -7,12 +7,24 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Asteriods" t="Include">
+          <e p="Containers" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="CoreContainer.cs" t="Include" />
+              <e p="MainContainer.cs" t="Include" />
+            </e>
+          </e>
           <e p="Core" t="Include">
             <e p="Auxilary" t="Include">
               <e p="Scripts" t="Include">
                 <e p="FileCreator.cs" t="Include" />
                 <e p="ObjectPool.cs" t="Include" />
                 <e p="SmapleScript.cs" t="Include" />
+              </e>
+            </e>
+            <e p="SpaceShipMovement" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="SpaceShipMevementModel.cs" t="Include" />
+                <e p="SpaceShipMovementLogic.cs" t="Include" />
               </e>
             </e>
           </e>
