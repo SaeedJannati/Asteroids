@@ -13,7 +13,11 @@ public class CoreContainer : MonoBehaviour
   [SerializeField] private AstroidGenerator astroidGenerator;
   [SerializeField] private ScoreLogic scoreLogic;
   [SerializeField] private PlayerHealthLogic healthLogic;
-
+  [SerializeField] private CameraShakeLogic cameraShakeLogic;
+  [SerializeField] private PopUpManager popupManager;
+  [SerializeField] private SceneLoader sceneLoader;
+  [SerializeField] private GameManger gameManager;
+  private const string prefabContainreAdderss = "Containers/PrefabContainer";
   #endregion
 
   #region MonobehaviourCallbacks
@@ -29,12 +33,28 @@ public class CoreContainer : MonoBehaviour
 
   void InjectDependencies()
   {
+    InjectPrefabContainer();
     MainContainer.InjectSpaceShipMovementLogic(spaceShipMovementLogic);
     MainContainer.InjectPlayerInputLogic(playerInputLogic);
     MainContainer.InjectMoveConfinment(movementConfinemetLogic);
     MainContainer.InjectAstroidGenerator(astroidGenerator);
     MainContainer.InjectScoreLogic(scoreLogic);
     MainContainer.InjectPlayerHealthLogic(healthLogic);
+    MainContainer.InjectCameraShakeLogic(cameraShakeLogic);
+    MainContainer.InjectPopUpManager(popupManager);
+    MainContainer.InjectSceneLoader(sceneLoader);
+    MainContainer.InjectGameManager(gameManager);
+  }
+
+  public void InjectPrefabContainer()
+  {
+    if(MainContainer.PrefabContainer!=null)
+      return;
+    var request = Resources.LoadAsync<PrefabContainer>(prefabContainreAdderss);
+    request.completed += (asynoptration) =>
+    {
+      MainContainer.InjectPrefabContainer((PrefabContainer)request.asset);
+    };
   }
 
   #endregion

@@ -49,10 +49,15 @@ public class PlayerSpawnManager : MonoBehaviour
     for (int i = 0; i < respawnTime; i++)
     {
       counterText.text = (respawnTime - i).ToString();
-      counterText.DOFade(1, .1f);
+      
+      counterText.DOFade(1, .1f).onComplete += () =>
+      {
+        counterText.DOScale(1.5f, .3f);
+      };
       yield return delay;
       yield return delay;
       counterText.DOFade(0, .15f);
+      counterText.transform.localScale=Vector3.one;
       yield return delay;
     }
     counterText.gameObject.SetActive(false);

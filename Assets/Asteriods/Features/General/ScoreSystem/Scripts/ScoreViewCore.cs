@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using TMPro;
 
@@ -62,12 +63,14 @@ public class ScoreViewCore : MonoBehaviour
     IEnumerator UpdateScoreCoroutine()
     {
         isUpdating = true;
+        ScoreText.DOScale(1.2f, .2f);
         while (currentScore<TargetScore)
         {
             currentScore++;
             ScoreText.text = currentScore.ToString();
             yield return delay;
         }
+        ScoreText.DOScale(1f, .2f);
         isUpdating = false;
     }
 

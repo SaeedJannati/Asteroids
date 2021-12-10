@@ -34,9 +34,25 @@
                   <e p="ObjectPool.cs" t="Include" />
                 </e>
               </e>
+              <e p="CameraShake" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="CameraShakeLogic.cs" t="Include" />
+                  <e p="CameraShakeModel.cs" t="Include" />
+                </e>
+              </e>
+              <e p="CoreHud" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="CoreHudLogic.cs" t="Include" />
+                </e>
+              </e>
               <e p="Dpad" t="Include">
                 <e p="Scripts" t="Include">
                   <e p="Dpad.cs" t="Include" />
+                </e>
+              </e>
+              <e p="GameManager" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="GameManger.cs" t="Include" />
                 </e>
               </e>
               <e p="MovementConfinement" t="Include">
@@ -91,6 +107,16 @@
               <e p="Debugger" t="Include">
                 <e p="SROptions.cs" t="Include" />
               </e>
+              <e p="PopUpManager" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="BasePopup.cs" t="Include" />
+                  <e p="PopUpManager.cs" t="Include" />
+                  <e p="PrefabContainer.cs" t="Include" />
+                </e>
+              </e>
+              <e p="SceneManager" t="Include">
+                <e p="SceneLoader.cs" t="Include" />
+              </e>
               <e p="ScoreSystem" t="Include">
                 <e p="Scripts" t="Include">
                   <e p="ScoreLogic.cs" t="Include" />
@@ -98,6 +124,11 @@
                   <e p="ScorePrefs.cs" t="Include" />
                   <e p="ScoreViewCore.cs" t="Include" />
                 </e>
+              </e>
+            </e>
+            <e p="Popups" t="Include">
+              <e p="CoreMenuPopup" t="Include">
+                <e p="CoreMenuPopup.cs" t="Include" />
               </e>
             </e>
           </e>

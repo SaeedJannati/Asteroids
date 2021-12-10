@@ -84,6 +84,7 @@ public class AstroidHealth : MonoBehaviour, IDamageable, IDammager
     [Button]
     public void OnDie()
     {
+        MainContainer.CameraShakeLogic.Shake();
         MainContainer.AstroidGenerator.CreateAstroids(transform.position, size, offspringCount, mSprite);
         MainContainer.AstroidGenerator.OnAstroidDie();
         ObjectPool.Instantiate(MainContainer.AstroidGenerator.ExplosionPrefab, transform.position, Quaternion.identity)

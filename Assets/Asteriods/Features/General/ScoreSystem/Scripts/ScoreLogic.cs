@@ -40,11 +40,10 @@ public class ScoreLogic : MonoBehaviour
       OnScoreChange?.Invoke(currentScore);
    }
 
-   public int GetHighScore()
-   {
-      return ScorePrefs.HighScore;
-   }
-   
+   public int GetHighScore()=>  ScorePrefs.HighScore;
+
+
+   public int GetScore() => currentScore;
 
    void CheckForNewHighScore()
    {
