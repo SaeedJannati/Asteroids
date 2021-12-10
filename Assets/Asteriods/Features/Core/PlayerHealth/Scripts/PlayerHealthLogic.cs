@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audios;
 using DG.Tweening;
 using UnityEngine;
 
@@ -69,6 +70,7 @@ public class PlayerHealthLogic : MonoBehaviour, IDamageable
         currentHealth = Mathf.Max(currentHealth, 0);
         OnHealthChange?.Invoke(currentHealth);
         ObjectPool.Instantiate(config.explosionPrefab, transform.position, Quaternion.identity);
+        MainContainer.AudioManager.RequestAudio(ClipName.SHIP_EXPLOSION);
         if (currentHealth <= 0)
             OnDie();
         else

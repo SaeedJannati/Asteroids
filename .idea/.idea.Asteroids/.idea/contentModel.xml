@@ -99,6 +99,14 @@
               </e>
             </e>
             <e p="General" t="Include">
+              <e p="AudioSystem" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="AudioManager.cs" t="Include" />
+                  <e p="AudioManagerPrefs.cs" t="Include" />
+                  <e p="AudioModel.cs" t="Include" />
+                  <e p="AudioPlayer.cs" t="Include" />
+                </e>
+              </e>
               <e p="Containers" t="Include">
                 <e p="Scripts" t="Include">
                   <e p="CoreContainer.cs" t="Include" />

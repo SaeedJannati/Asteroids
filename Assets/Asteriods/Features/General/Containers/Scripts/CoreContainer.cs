@@ -17,6 +17,7 @@ public class CoreContainer : MonoBehaviour
   [SerializeField] private PopUpManager popupManager;
   [SerializeField] private SceneLoader sceneLoader;
   [SerializeField] private GameManger gameManager;
+  [SerializeField] private AudioManager audioManager;
 
   #endregion
 
@@ -44,6 +45,7 @@ public class CoreContainer : MonoBehaviour
     MainContainer.InjectPopUpManager(popupManager);
     MainContainer.InjectSceneLoader(sceneLoader);
     MainContainer.InjectGameManager(gameManager);
+    MainContainer.InjectAudioManager(audioManager);
   }
 
   public void InjectPrefabContainer()

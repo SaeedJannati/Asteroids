@@ -10,6 +10,7 @@ public class MetaContainer : MonoBehaviour
     [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private ScoreLogic scoreLogic;
     [SerializeField] private MetaMainMenuLogic mainMenulogic;
+    [SerializeField] private AudioManager audioManager;
 
     #endregion
 
@@ -30,6 +31,7 @@ public class MetaContainer : MonoBehaviour
         MainContainer.InjectPopUpManager(popupManager);
         MainContainer.InjectSceneLoader(sceneLoader);
         MainContainer.InjectMetaMainMenu(mainMenulogic);
+        MainContainer.InjectAudioManager(audioManager);
     }
     
     public void InjectPrefabContainer()

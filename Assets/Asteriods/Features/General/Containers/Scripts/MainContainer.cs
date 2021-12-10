@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Management.Instrumentation;
 using UnityEngine;
 
 public class MainContainer
@@ -19,6 +20,7 @@ public class MainContainer
     private static SceneLoader sceneLoader;
     private static GameManger gameManager;
     private static MetaMainMenuLogic metaMainMenuLogic;
+    private static AudioManager audioManager;
     #endregion
 
     #region properties
@@ -88,6 +90,11 @@ public class MainContainer
         get => metaMainMenuLogic;
     }
 
+    public static AudioManager AudioManager
+    {
+        get => audioManager;
+    }
+
     #endregion
 
     #region Mehtodes
@@ -153,8 +160,12 @@ public class MainContainer
     {
         metaMainMenuLogic = logic;
     }
+    public static void InjectAudioManager(AudioManager manager)
+    {
+        audioManager = manager;
+    }
     #endregion
 
 
-  
+    
 }

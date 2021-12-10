@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650d3d8c0ae12e244bd7af0976e26145, type: 3}
+  m_Name: AudioModel
+  m_EditorClassIdentifier: 
+  audioClips:
+  - key: 0
+    clip: {fileID: 8300000, guid: c75e7a0735716534e8cd41b306e970d8, type: 3}
+  - key: 1
+    clip: {fileID: 8300000, guid: dbb8bceda6fae0c4fa3fb501999de941, type: 3}
+  - key: 2
+    clip: {fileID: 8300000, guid: 89b76d9eaf7df8640b293769e63894c1, type: 3}
+  audioPlayerPrefab: {fileID: 137750320696654022, guid: bb2ff992a6ae97a42b3ba5bd7d14083a,
+    type: 3}
+  mixer: {fileID: 24100000, guid: 0cbb9a478e9071048833710d30e85392, type: 2}
+  AudioChannelKey: AudioVolume
+  MusicChannelKey: MusicVolume

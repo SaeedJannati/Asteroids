@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using AstroidFeatures;
+using Audios;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -92,6 +93,7 @@ public class AstroidHealth : MonoBehaviour, IDamageable, IDammager
             Vector3.one * explosionScale;
         MainContainer.ScoreLogic.AddScore(score);
         gameObject.SetActive(false);
+        MainContainer.AudioManager.RequestAudio(ClipName.ASTROID_EXPLOSION);
     }
 
     #endregion

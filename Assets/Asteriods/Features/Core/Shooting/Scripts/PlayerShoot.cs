@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audios;
 using DG.Tweening;
 using UnityEngine;
 
@@ -55,6 +56,7 @@ public class PlayerShoot : MonoBehaviour
   {
     shootEffect.Play();
     PlayShootRecoil();
+    MainContainer.AudioManager.RequestAudio(ClipName.SHOOT);
   }
 
   void PlayShootRecoil()

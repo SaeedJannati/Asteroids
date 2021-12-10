@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class MetaMainMenuView : MonoBehaviour
 {
     [SerializeField] private TMP_Text highScoreAmountText;
-    [SerializeField] private Button audioButton;
-    [SerializeField] private Button musicButton;
+    [SerializeField] private Image audioButton;
+    [SerializeField] private Image musicButton;
     private bool isAudioEnable;
     private bool isMusicEnable;
 
@@ -42,5 +42,22 @@ public class MetaMainMenuView : MonoBehaviour
     public void MusicClick()
     {
         MainContainer.MetaMainMenuLogic.TweakMusic();
+    }
+
+   
+
+    public void SetMusicButtonAppearance(bool enabled)
+    {
+        var colour = enabled
+            ? MainContainer.MetaMainMenuLogic.GetActiveColor()
+            : MainContainer.MetaMainMenuLogic.GetDeactiveColor();
+        musicButton.color = colour;
+    }
+    public void SetAudioButtonAppearance(bool enabled)
+    {
+        var colour = enabled
+            ? MainContainer.MetaMainMenuLogic.GetActiveColor()
+            : MainContainer.MetaMainMenuLogic.GetDeactiveColor();
+        audioButton.color = colour;
     }
 }

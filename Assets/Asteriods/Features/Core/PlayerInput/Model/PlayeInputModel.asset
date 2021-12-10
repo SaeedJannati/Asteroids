@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce911cbcd20ccf943834c88a2f12ff50, type: 3}
   m_Name: PlayeInputModel
   m_EditorClassIdentifier: 
-  platform: 1
+  platform: 0
   playformInputs:
   - platform: 0
     inputPrefab: {fileID: 1206734512334699917, guid: 5d555af41b1131d47b4d02e4911a0eec,
