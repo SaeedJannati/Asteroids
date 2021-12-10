@@ -43,6 +43,12 @@
                   <e p="MovementConfinementLogic.cs" t="Include" />
                 </e>
               </e>
+              <e p="PlayerHealth" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="PlayerHealthLogic.cs" t="Include" />
+                  <e p="PlayerHealthModel.cs" t="Include" />
+                </e>
+              </e>
               <e p="PlayerInput" t="Include">
                 <e p="Scripts" t="Include">
                   <e p="IMovementInput.cs" t="Include" />
@@ -56,6 +62,7 @@
                 <e p="Scripts" t="Include">
                   <e p="Bullet.cs" t="Include" />
                   <e p="BulletModel.cs" t="Include" />
+                  <e p="IDammager.cs" t="Include" />
                   <e p="PlayerShoot.cs" t="Include" />
                   <e p="PlayerShootModel.cs" t="Include" />
                 </e>

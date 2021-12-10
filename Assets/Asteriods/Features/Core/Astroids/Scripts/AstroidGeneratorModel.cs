@@ -38,6 +38,7 @@ namespace AstroidFeatures
         public int hp;
         public int astroidCountToCreate;
         public GameObject astroidPrefab;
+        public int damage;
 
     }
 

@@ -39,10 +39,4 @@ public class PlayerInputLogic : MonoBehaviour
   }
 
   #endregion
-
-  #region Methods
-
-  
-
-  #endregion
 }

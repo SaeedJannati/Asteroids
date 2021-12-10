@@ -5,7 +5,7 @@ using AstroidFeatures;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class AstroidHealth :MonoBehaviour ,IDamageable
+public class AstroidHealth :MonoBehaviour ,IDamageable,IDammager
 {
 
     #region  Fields
@@ -14,20 +14,26 @@ public class AstroidHealth :MonoBehaviour ,IDamageable
   [SerializeField]    private AstroidSize size;
   [SerializeField]    private int health;
   [SerializeField]     private int offspringCount;
+  [SerializeField] private int damage;
   private Sprite mSprite;
 
     #endregion
 
+    #region Properties
+
+     public int Damage { get=>damage; }
+     public bool CanDammagePlayer { get=>true; }
+     public bool CanDammageEnemy { get=>false; }
+
+     #endregion
     #region Monobehaviour callbacks
 
-    private void OnCollisionEnter(Collision other)
-    {
-       
-    }
-
+ 
     #endregion
 
     #region Mehtods
+
+
 
     public void Initialize(AstroidSize Size,Sprite sprite)
     {
@@ -37,6 +43,7 @@ public class AstroidHealth :MonoBehaviour ,IDamageable
         size = Size;
         health = initHealth;
         mSprite = sprite;
+        damage = data.damage;
     }
 
     public void OnGettingDamage(int damage)
@@ -44,6 +51,7 @@ public class AstroidHealth :MonoBehaviour ,IDamageable
         health -= damage;
         if(health<=0)
             OnDie();
+      
         
     }
 [Button]
@@ -56,5 +64,6 @@ public class AstroidHealth :MonoBehaviour ,IDamageable
     }
 
     #endregion
-  
+
+   
 }

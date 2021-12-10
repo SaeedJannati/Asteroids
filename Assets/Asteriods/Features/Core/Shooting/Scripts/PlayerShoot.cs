@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
@@ -12,8 +13,10 @@ public class PlayerShoot : MonoBehaviour
 
 
   [SerializeField] Transform MuzzleTransform;
+  [SerializeField] private ParticleSystem shootEffect;
+  [SerializeField] private Transform spaceShipTransform;
   private float lastShotTime;
-
+  private Vector3 shakeDestPos;
   #endregion
 
   #region Monobehaviour Callbacks
@@ -41,16 +44,30 @@ public class PlayerShoot : MonoBehaviour
   {
     if (Time.time > lastShotTime + config.recoilTime)
     {
+     
       ObjectPool.Instantiate(config.bulletPrefab, MuzzleTransform.position, MuzzleTransform.rotation);
-      lastShotTime = Time.time;
+      PlayShootEffects();
+     
     }
   }
 
-  #endregion
+  void PlayShootEffects()
+  {
+    shootEffect.Play();
+    PlayShootRecoil();
+  }
 
-  #region
-
-
+  void PlayShootRecoil()
+  {
+    lastShotTime = Time.time;
+    shakeDestPos=Vector3.zero;
+    shakeDestPos.y = -.05f;
+    spaceShipTransform.DOLocalMove(shakeDestPos, .03f).onComplete+= () =>
+    {
+      shakeDestPos.y = 0;
+      spaceShipTransform.DOLocalMove(shakeDestPos, .03f);
+    };
+  }
 
   #endregion
 }

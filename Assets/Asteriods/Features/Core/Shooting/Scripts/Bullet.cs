@@ -3,19 +3,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IDammager
 {
     #region Fields
 
-        [SerializeField] Transform mTransform;
-        [SerializeField] Rigidbody2D mRigidBody;
-       
-     
-        [SerializeField] private BulletModel config;
-        [SerializeField] private SpriteRenderer spriteRenderer;
-        
-        WaitForSeconds delay;
-        private int timesShown;
+    [SerializeField] Transform mTransform;
+    [SerializeField] Rigidbody2D mRigidBody;
+
+
+    [SerializeField] private BulletModel config;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    WaitForSeconds delay;
+    private int timesShown;
+
+    #endregion
+
+    #region Properties
+
+    public int Damage
+    {
+        get => config.damage;
+    }
+
+    public bool CanDammagePlayer
+    {
+        get => config.canDamagePlayer;
+    }
+
+    public bool CanDammageEnemy
+    {
+        get => config.canDammageEnemies;
+    }
+
     #endregion
 
     #region Monobehaviour CallBacks
@@ -28,6 +48,7 @@ public class Bullet : MonoBehaviour
         {
             mRigidBody = gameObject.AddComponent<Rigidbody2D>();
         }
+
         spriteRenderer.sprite = config.sprite;
     }
 
@@ -35,17 +56,15 @@ public class Bullet : MonoBehaviour
     {
         mRigidBody.velocity = mTransform.up * config.velocity;
         StartCoroutine(disableAfterLifeTime());
- 
     }
 
     private void OnDisable()
     {
         mRigidBody.Sleep();
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print($"Collision:{collision.gameObject.name}");
         if (!gameObject.activeInHierarchy)
             return;
         if (collision.collider.transform.parent.TryGetComponent<IDamageable>(out var dammageAble))
@@ -53,39 +72,33 @@ public class Bullet : MonoBehaviour
             bool shouldApply = false;
             if (collision.collider.transform.parent.tag != "Player")
             {
-                if (config.canDammageEnemies)
+                if (CanDammageEnemy)
                 {
-
                     shouldApply = true;
-
                 }
             }
             else
             {
-                shouldApply = true;
-
-
+                if (CanDammagePlayer)
+                    shouldApply = true;
             }
+
             if (shouldApply)
                 dammageAble.OnGettingDamage(config.damage);
         }
+
         gameObject.SetActive(false);
     }
-    #endregion
-
-    #region  Methods
-
-    
 
     #endregion
 
     #region Coroutins
 
-    
     IEnumerator disableAfterLifeTime()
     {
         yield return delay;
         gameObject.SetActive(false);
     }
+
     #endregion
 }

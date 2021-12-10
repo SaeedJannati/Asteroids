@@ -10,4 +10,7 @@ public class BulletModel : ScriptableObject
     public int damage =1;
     public bool canDammageEnemies;
     public  Sprite sprite;
+
+    public bool canDamagePlayer;
+ 
 }
