@@ -14,8 +14,22 @@ public class PlayerHealthLogic : MonoBehaviour, IDamageable
     public static event Action<GameObject> OnRespawn;
     private bool isInvulnarable;
     [SerializeField] SpriteRenderer shipRenderer;
+    public static event Action OnGameEnd;
     #endregion
 
+    #region  Properties
+
+    public int CurrentHealth
+    {
+        get => currentHealth;
+    }
+
+    public int GetMaxhHealth
+    {
+        get => config.initHealth;
+    }
+
+    #endregion
     #region Monobehaviour callbacks
 
     // Start is called before the first frame update
@@ -28,11 +42,6 @@ public class PlayerHealthLogic : MonoBehaviour, IDamageable
     {
         StartCoroutine(InvulnrableCourutine());
     }
-
-    #endregion
-
-    #region Methods
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(isInvulnarable)
@@ -48,6 +57,11 @@ public class PlayerHealthLogic : MonoBehaviour, IDamageable
             damageable.OnGettingDamage(1);
         }
     }
+    #endregion
+
+    #region Methods
+
+
 
     public void OnGettingDamage(int damage)
     {
@@ -66,6 +80,7 @@ public class PlayerHealthLogic : MonoBehaviour, IDamageable
 
     public void OnDie()
     {
+        OnGameEnd?.Invoke();
         gameObject.SetActive(false);
     }
 

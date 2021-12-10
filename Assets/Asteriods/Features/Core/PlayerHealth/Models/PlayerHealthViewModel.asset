@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e70ddcecea4f840977fd0aadc1eb32, type: 3}
+  m_Name: PlayerHealthViewModel
+  m_EditorClassIdentifier: 
+  healthPrefab: {fileID: 9062572984047384864, guid: c13009acac46a38418e8508606b15223,
+    type: 3}
+  activeColour: {r: 1, g: 1, b: 1, a: 1}
+  deactiveColour: {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 0.3372549}

@@ -21,6 +21,7 @@ MonoBehaviour:
       type: 3}
     explosionScale: 1
     damage: 1
+    score: 20
   - size: 1
     hp: 1
     astroidCountToCreate: 2
@@ -28,6 +29,7 @@ MonoBehaviour:
       type: 3}
     explosionScale: 1.5
     damage: 1
+    score: 20
   - size: 2
     hp: 1
     astroidCountToCreate: 3
@@ -35,6 +37,7 @@ MonoBehaviour:
       type: 3}
     explosionScale: 2
     damage: 1
+    score: 20
   astoirdExplosion: {fileID: 7793875425063899353, guid: ea5732394fac9794f9157775bc7ffb02,
     type: 3}
   minSpeed: 0.5

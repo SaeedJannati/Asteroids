@@ -40,6 +40,7 @@ namespace AstroidFeatures
         public GameObject astroidPrefab;
         public float explosionScale;
         public int damage;
+        public int score;
 
     }
 

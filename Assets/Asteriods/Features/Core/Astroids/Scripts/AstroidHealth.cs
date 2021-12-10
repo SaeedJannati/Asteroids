@@ -5,27 +5,41 @@ using AstroidFeatures;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class AstroidHealth :MonoBehaviour ,IDamageable,IDammager
+public class AstroidHealth : MonoBehaviour, IDamageable, IDammager
 {
+    #region Fields
 
-    #region  Fields
-
-  [SerializeField]  private int initHealth;
-  [SerializeField]    private AstroidSize size;
-  [SerializeField]    private int health;
-  [SerializeField]     private int offspringCount;
-  [SerializeField] private int damage;
-  private Sprite mSprite;
+    private int initHealth;
+    private AstroidSize size;
+    private int health;
+    private int offspringCount;
+    private int damage;
+    private int score;
+    private Sprite mSprite;
 
     #endregion
 
     #region Properties
 
-     public int Damage { get=>damage; }
-     public bool CanDammagePlayer { get=>true; }
-     public bool CanDammageEnemy { get=>false; }
-     private float explosionScale;
-     #endregion
+    public int Damage
+    {
+        get => damage;
+    }
+
+    public bool CanDammagePlayer
+    {
+        get => true;
+    }
+
+    public bool CanDammageEnemy
+    {
+        get => false;
+    }
+
+    private float explosionScale;
+
+    #endregion
+
     #region Monobehaviour callbacks
 
     private void Awake()
@@ -47,7 +61,7 @@ public class AstroidHealth :MonoBehaviour ,IDamageable,IDammager
         gameObject.SetActive(false);
     }
 
-    public void Initialize(AstroidSize Size,Sprite sprite)
+    public void Initialize(AstroidSize Size, Sprite sprite)
     {
         var data = MainContainer.AstroidGenerator.GetAstroidData(Size);
         initHealth = data.hp;
@@ -57,28 +71,27 @@ public class AstroidHealth :MonoBehaviour ,IDamageable,IDammager
         mSprite = sprite;
         damage = data.damage;
         explosionScale = data.explosionScale;
+        score = data.score;
     }
 
     public void OnGettingDamage(int damage)
     {
         health -= damage;
-        if(health<=0)
+        if (health <= 0)
             OnDie();
-      
-        
     }
-[Button]
+
+    [Button]
     public void OnDie()
     {
-     MainContainer.AstroidGenerator.CreateAstroids(transform.position,size,offspringCount,mSprite);
-     MainContainer.AstroidGenerator.OnAstroidDie();
-     ObjectPool.Instantiate(MainContainer.AstroidGenerator.ExplosionPrefab, transform.position, Quaternion.identity)
-             .transform.localScale =
-         Vector3.one * explosionScale;
-     gameObject.SetActive(false);
+        MainContainer.AstroidGenerator.CreateAstroids(transform.position, size, offspringCount, mSprite);
+        MainContainer.AstroidGenerator.OnAstroidDie();
+        ObjectPool.Instantiate(MainContainer.AstroidGenerator.ExplosionPrefab, transform.position, Quaternion.identity)
+                .transform.localScale =
+            Vector3.one * explosionScale;
+        MainContainer.ScoreLogic.AddScore(score);
+        gameObject.SetActive(false);
     }
 
     #endregion
-
-   
 }

@@ -16,12 +16,6 @@
           </e>
         </e>
         <e p="Asteriods" t="Include">
-          <e p="Containers" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="CoreContainer.cs" t="Include" />
-              <e p="MainContainer.cs" t="Include" />
-            </e>
-          </e>
           <e p="Features" t="Include">
             <e p="Core" t="Include">
               <e p="Astroids" t="Include">
@@ -52,12 +46,12 @@
                 </e>
               </e>
               <e p="PlayerHealth" t="Include">
-                <e p="Models" t="Include">
-                  <e p="PlayerSpawManagerModel.cs" t="Include" />
-                </e>
                 <e p="Scripts" t="Include">
+                  <e p="HealthCell.cs" t="Include" />
                   <e p="PlayerHealthLogic.cs" t="Include" />
                   <e p="PlayerHealthModel.cs" t="Include" />
+                  <e p="PlayerHealthView.cs" t="Include" />
+                  <e p="PlayerHealthViewModel.cs" t="Include" />
                   <e p="PlayerSpawnManager.cs" t="Include" />
                 </e>
               </e>
@@ -88,6 +82,12 @@
               </e>
             </e>
             <e p="General" t="Include">
+              <e p="Containers" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="CoreContainer.cs" t="Include" />
+                  <e p="MainContainer.cs" t="Include" />
+                </e>
+              </e>
               <e p="Debugger" t="Include">
                 <e p="SROptions.cs" t="Include" />
               </e>

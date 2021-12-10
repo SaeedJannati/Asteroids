@@ -16,6 +16,7 @@ public class AstroidGenerator : MonoBehaviour
    [SerializeField]  private int astroidCount;
   [SerializeField] private int astroidsAlive;
   public static event Action OnClearTheScreen;
+  public static event Action OnGameStarted;
 
   private bool isCleared;
    #endregion
@@ -190,6 +191,7 @@ public class AstroidGenerator : MonoBehaviour
   {
      isCleared = false;
       StartCoroutine(PopulateAstroidsCoroutine());
+
    }
 
    #endregion

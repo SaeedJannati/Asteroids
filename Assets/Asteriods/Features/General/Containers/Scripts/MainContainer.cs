@@ -11,8 +11,8 @@ public class MainContainer
   private static PlayerInputLogic _playerInput;
   private static MovementConfinementLogic movementConfinmentLogic;
   private static AstroidGenerator astroidGenerator;
-
-
+  private static ScoreLogic scoreLogic;
+  private static PlayerHealthLogic playerHealthLogic;
   #endregion
 
   #region  properties
@@ -42,6 +42,16 @@ public class MainContainer
       get => astroidGenerator;
   }
 
+  public static ScoreLogic ScoreLogic
+  {
+      get => scoreLogic;
+  }
+
+  public static PlayerHealthLogic PlayerHealthLogic
+  {
+      get => playerHealthLogic;
+  }
+
   #endregion
 
   #region  Mehtodes
@@ -69,6 +79,16 @@ public class MainContainer
   public static void InjectAstroidGenerator(AstroidGenerator generator)
   {
       astroidGenerator = generator;
+  }
+
+  public static void InjectScoreLogic(ScoreLogic logic)
+  {
+      scoreLogic = logic;
+  }
+
+  public static void InjectPlayerHealthLogic(PlayerHealthLogic logic)
+  {
+      playerHealthLogic = logic;
   }
 
   #endregion
