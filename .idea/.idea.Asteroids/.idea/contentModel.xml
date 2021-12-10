@@ -74,6 +74,7 @@
               <e p="PlayerInput" t="Include">
                 <e p="Scripts" t="Include">
                   <e p="IMovementInput.cs" t="Include" />
+                  <e p="MobileInputHud.cs" t="Include" />
                   <e p="PlayerInputLogic.cs" t="Include" />
                   <e p="PlayerInputLogicModel.cs" t="Include" />
                   <e p="PlayerInputPc.cs" t="Include" />

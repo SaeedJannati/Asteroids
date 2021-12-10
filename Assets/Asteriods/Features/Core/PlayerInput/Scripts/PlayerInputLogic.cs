@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using InputLogic;
 using UnityEngine;
 
 public class PlayerInputLogic : MonoBehaviour
@@ -36,6 +37,11 @@ public class PlayerInputLogic : MonoBehaviour
   {
     
     MainContainer.SpaceShipMovement.ApplyForce(movementInput.Direction.x,movementInput.Direction.y);
+  }
+
+  public Platform GetPlatform()
+  {
+    return config.platform;
   }
 
   #endregion

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dcc054a15867bf448feb6ebee83369a, type: 3}
   m_Name: PlayerHealthModel
   m_EditorClassIdentifier: 
-  initHealth: 2
+  initHealth: 7
   explosionPrefab: {fileID: 7982877613624020049, guid: d1f6266db5daa1d42a9f54728faecb80,
     type: 3}
   invulnarablePeriod: 2

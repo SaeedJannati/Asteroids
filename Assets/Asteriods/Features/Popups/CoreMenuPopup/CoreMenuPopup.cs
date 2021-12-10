@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using InputLogic;
 using TMPro;
 using UnityEngine;
 public class CoreMenuPopup : BasePopup
@@ -21,11 +22,19 @@ public class CoreMenuPopup : BasePopup
    private void OnEnable()
    {
       Time.timeScale = 0;
+      if (MainContainer.PlayerInput.GetPlatform() == Platform.MOBILE)
+      {
+        ((MobileInputHud) MainContainer.MovementInput).gameObject.SetActive(false);
+      }
    }
 
    private void OnDisable()
    {
       Time.timeScale = 1;
+      if (MainContainer.PlayerInput.GetPlatform() == Platform.MOBILE)
+      {
+         ((MobileInputHud) MainContainer.MovementInput).gameObject.SetActive(true);
+      }
    }
 
    #endregion
