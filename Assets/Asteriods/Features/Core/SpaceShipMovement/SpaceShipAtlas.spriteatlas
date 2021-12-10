@@ -43,10 +43,11 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 7675a236fb766b94c84df4038f5f52e0, type: 3}
-    totalSpriteSurfaceArea: 296118
+    totalSpriteSurfaceArea: 309558
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: f19f1522dcb28ff40822d57b736db876, type: 3}
   - {fileID: 21300000, guid: 75c9be52d93211b449d15ba8cdeadb0a, type: 3}
   - {fileID: 21300000, guid: ff6bfdf3f3efa8d4086539a2a4121c13, type: 3}
   - {fileID: 21300000, guid: bc648a04437db274ba9cba2aaa8087f0, type: 3}
@@ -54,6 +55,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1ce75db97ca3c844ca5a79f401ccb480, type: 3}
   - {fileID: 21300000, guid: b5094d0fa785bbe419c8bcbb9257477d, type: 3}
   m_PackedSpriteNamesToIndex:
+  - ShipExplosion
   - Ship4
   - SpaceSHip3
   - SpaceShip01

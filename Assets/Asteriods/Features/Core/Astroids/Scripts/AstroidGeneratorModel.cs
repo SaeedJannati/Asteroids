@@ -9,7 +9,7 @@ public class AstroidGeneratorModel : ScriptableObject
     #region Fields
     public AstroidGeneratorSpriteContainer spriteContainer;
    public List<AstroidData> astroidsData;
-    
+   public GameObject astoirdExplosion;
     public float minSpeed;
     public float maxSpeed;
 
@@ -38,6 +38,7 @@ namespace AstroidFeatures
         public int hp;
         public int astroidCountToCreate;
         public GameObject astroidPrefab;
+        public float explosionScale;
         public int damage;
 
     }

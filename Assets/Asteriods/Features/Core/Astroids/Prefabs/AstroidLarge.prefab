@@ -164,3 +164,4 @@ MonoBehaviour:
   size: 0
   health: 0
   offspringCount: 0
+  damage: 0

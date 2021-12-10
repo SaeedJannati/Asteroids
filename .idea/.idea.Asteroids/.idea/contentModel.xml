@@ -29,7 +29,6 @@
                 <e p="Scripts" t="Include">
                   <e p="FileCreator.cs" t="Include" />
                   <e p="ObjectPool.cs" t="Include" />
-                  <e p="SmapleScript.cs" t="Include" />
                 </e>
               </e>
               <e p="Dpad" t="Include">
@@ -44,9 +43,13 @@
                 </e>
               </e>
               <e p="PlayerHealth" t="Include">
+                <e p="Models" t="Include">
+                  <e p="PlayerSpawManagerModel.cs" t="Include" />
+                </e>
                 <e p="Scripts" t="Include">
                   <e p="PlayerHealthLogic.cs" t="Include" />
                   <e p="PlayerHealthModel.cs" t="Include" />
+                  <e p="PlayerSpawnManager.cs" t="Include" />
                 </e>
               </e>
               <e p="PlayerInput" t="Include">
@@ -69,6 +72,7 @@
               </e>
               <e p="SpaceShipMovement" t="Include">
                 <e p="Scripts" t="Include">
+                  <e p="ExplosionHandler.cs" t="Include" />
                   <e p="SpaceShipMevementModel.cs" t="Include" />
                   <e p="SpaceShipMovementLogic.cs" t="Include" />
                 </e>

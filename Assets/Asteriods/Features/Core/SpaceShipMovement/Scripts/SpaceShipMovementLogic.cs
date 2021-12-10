@@ -19,7 +19,7 @@ public class SpaceShipMovementLogic : ConfinedMovementBase
    private Vector3 moveDirection;
    #endregion
 
-   private void Start()
+   private void OnEnable()
    {
       currentSpeed=Vector3.zero;
    }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AstroidFeatures;
+using Sirenix.OdinInspector;
 using Random = UnityEngine.Random;
 
 public class AstroidGenerator : MonoBehaviour
@@ -14,8 +15,20 @@ public class AstroidGenerator : MonoBehaviour
    private const float deltaPos = 200.0f;
    [SerializeField]  private int astroidCount;
   [SerializeField] private int astroidsAlive;
+  public static event Action OnClearTheScreen;
+
+  private bool isCleared;
    #endregion
 
+   #region Properties
+
+   public GameObject ExplosionPrefab
+   {
+      get => config.astoirdExplosion;
+   }
+
+
+   #endregion
    #region Monobehaviour callBacks
 
    private void Awake()
@@ -25,7 +38,7 @@ public class AstroidGenerator : MonoBehaviour
 
    private void Start()
    {
-      StartCoroutine(PopulateAstroids());
+      PopulateAstroids();
       
    }
 
@@ -51,6 +64,8 @@ public class AstroidGenerator : MonoBehaviour
     
       var size = Random.Range(0, (int) AstroidSize.END);
       var initPos = GetRandomPosOutSideScreen();
+      if(isCleared)
+         return;
       if (ObjectPool.Instantiate(config.astroidsData[size].astroidPrefab, mTransform).TryGetComponent
          (out AstroidMovement astroid))
       {
@@ -84,6 +99,8 @@ public class AstroidGenerator : MonoBehaviour
       var initPos = positon;
       for (int i = 0; i < count; i++)
       {
+         if(isCleared)
+            return;
          currentSpeed = RotateVectorByAngle(speed,i * deltaAngle);
          if (ObjectPool.Instantiate(config.astroidsData[size].astroidPrefab, mTransform).TryGetComponent
             (out AstroidMovement astroid))
@@ -155,6 +172,25 @@ public class AstroidGenerator : MonoBehaviour
       if (astroidsAlive < astroidCount)
          StartCoroutine(CreateNewAstroidWithSomeDelay());
    }
+    [Button]
+   public void ClearAllAStroids()
+   {
+      isCleared = true;
+      StopAllCoroutines();
+      OnClearTheScreen?.Invoke();
+
+   
+      astroidsAlive = 0;
+      astroidCount = config.initAstroidCount;
+   
+      
+   }
+
+  public void PopulateAstroids()
+  {
+     isCleared = false;
+      StartCoroutine(PopulateAstroidsCoroutine());
+   }
 
    #endregion
 
@@ -167,7 +203,7 @@ public class AstroidGenerator : MonoBehaviour
       CreateAstroid();
    }
 
-   IEnumerator PopulateAstroids()
+   IEnumerator PopulateAstroidsCoroutine()
    {
       var delay=new WaitForSeconds(1.0f);
       astroidCount = 0;

@@ -24,16 +24,28 @@ public class AstroidHealth :MonoBehaviour ,IDamageable,IDammager
      public int Damage { get=>damage; }
      public bool CanDammagePlayer { get=>true; }
      public bool CanDammageEnemy { get=>false; }
-
+     private float explosionScale;
      #endregion
     #region Monobehaviour callbacks
 
- 
+    private void Awake()
+    {
+        AstroidGenerator.OnClearTheScreen += DisableAstroid;
+    }
+
+    private void OnDestroy()
+    {
+        AstroidGenerator.OnClearTheScreen -= DisableAstroid;
+    }
+
     #endregion
 
     #region Mehtods
 
-
+    void DisableAstroid()
+    {
+        gameObject.SetActive(false);
+    }
 
     public void Initialize(AstroidSize Size,Sprite sprite)
     {
@@ -44,6 +56,7 @@ public class AstroidHealth :MonoBehaviour ,IDamageable,IDammager
         health = initHealth;
         mSprite = sprite;
         damage = data.damage;
+        explosionScale = data.explosionScale;
     }
 
     public void OnGettingDamage(int damage)
@@ -59,7 +72,9 @@ public class AstroidHealth :MonoBehaviour ,IDamageable,IDammager
     {
      MainContainer.AstroidGenerator.CreateAstroids(transform.position,size,offspringCount,mSprite);
      MainContainer.AstroidGenerator.OnAstroidDie();
-     //add some effects here maybe
+     ObjectPool.Instantiate(MainContainer.AstroidGenerator.ExplosionPrefab, transform.position, Quaternion.identity)
+             .transform.localScale =
+         Vector3.one * explosionScale;
      gameObject.SetActive(false);
     }
 

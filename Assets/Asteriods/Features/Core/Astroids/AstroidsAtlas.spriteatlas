@@ -43,16 +43,18 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: fe795693f09bea3488834a7829c326b6, type: 3}
-    totalSpriteSurfaceArea: 173980
+    totalSpriteSurfaceArea: 473980
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: cf042f206f51c254ebe0c02ef5ab51b9, type: 3}
   - {fileID: 21300000, guid: 08af6bc340215ce4d94ad4488705c766, type: 3}
+  - {fileID: 21300000, guid: dbff9bfe6d6b6784194bdc4081c5b65a, type: 3}
   - {fileID: 21300000, guid: 1458f4cf3c310924e948c290518ce9b8, type: 3}
   m_PackedSpriteNamesToIndex:
   - Astroid
   - Astroid2
+  - AstroidExplosion
   - Astoird3
   m_Tag: AstroidsAtlas
   m_IsVariant: 0

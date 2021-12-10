@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: PlayerHealthModel
   m_EditorClassIdentifier: 
   initHealth: 3
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 7982877613624020049, guid: d1f6266db5daa1d42a9f54728faecb80,
+    type: 3}
   invulnarablePeriod: 2

@@ -19,19 +19,24 @@ MonoBehaviour:
     astroidCountToCreate: 0
     astroidPrefab: {fileID: 2521194221926233771, guid: c171c9f0eb6436349bd46b1f4918ec60,
       type: 3}
+    explosionScale: 1
     damage: 1
   - size: 1
     hp: 1
     astroidCountToCreate: 2
     astroidPrefab: {fileID: 5326665894153464322, guid: fbe80edaa3f71c540918e1dad86e6e09,
       type: 3}
+    explosionScale: 1.5
     damage: 1
   - size: 2
     hp: 1
     astroidCountToCreate: 3
     astroidPrefab: {fileID: 9047476247649902655, guid: dfba21dcebf4fe540ab3f5ae0cbcf8ef,
       type: 3}
+    explosionScale: 2
     damage: 1
+  astoirdExplosion: {fileID: 7793875425063899353, guid: ea5732394fac9794f9157775bc7ffb02,
+    type: 3}
   minSpeed: 0.5
   maxSpeed: 1
   rotatingChance: 70

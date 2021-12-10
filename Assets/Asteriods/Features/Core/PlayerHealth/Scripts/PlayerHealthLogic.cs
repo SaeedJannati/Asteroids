@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerHealthLogic : MonoBehaviour, IDamageable
@@ -10,15 +11,22 @@ public class PlayerHealthLogic : MonoBehaviour, IDamageable
     [SerializeField] private PlayerHealthModel config;
     [SerializeField] private int currentHealth;
     public static event Action<int> OnHealthChange;
-
+    public static event Action<GameObject> OnRespawn;
+    private bool isInvulnarable;
+    [SerializeField] SpriteRenderer shipRenderer;
     #endregion
 
     #region Monobehaviour callbacks
 
     // Start is called before the first frame update
-    void OnEnable()
+    void Start()
     {
         currentHealth = config.initHealth;
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(InvulnrableCourutine());
     }
 
     #endregion
@@ -27,6 +35,8 @@ public class PlayerHealthLogic : MonoBehaviour, IDamageable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(isInvulnarable)
+            return;
         if (other.transform.parent.TryGetComponent(out IDammager damager))
         {
             if (damager.CanDammagePlayer)
@@ -44,17 +54,45 @@ public class PlayerHealthLogic : MonoBehaviour, IDamageable
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
         OnHealthChange?.Invoke(currentHealth);
-
+        ObjectPool.Instantiate(config.explosionPrefab, transform.position, Quaternion.identity);
         if (currentHealth <= 0)
             OnDie();
         else
         {
+            MainContainer.AstroidGenerator.ClearAllAStroids();
+            OnRespawn?.Invoke(gameObject);
         }
     }
 
     public void OnDie()
     {
         gameObject.SetActive(false);
+    }
+
+    #endregion
+
+    #region  Coroutines
+
+    IEnumerator InvulnrableCourutine()
+    {
+        isInvulnarable = true;
+        var period = config.invulnarablePeriod;
+        var time = 0.0f;
+        var fadePeriod = .1f;
+        var delay=new WaitForSeconds(fadePeriod);
+        while (time<period)
+        {
+            shipRenderer.DOFade(0, fadePeriod);
+            yield return delay;
+            shipRenderer.DOFade(1, fadePeriod);
+            yield return delay;
+            time += 2 * fadePeriod;
+        }
+
+        var colour = shipRenderer.color;
+        colour.a = 1;
+        shipRenderer.color = colour;
+        isInvulnarable = false;
     }
 
     #endregion
