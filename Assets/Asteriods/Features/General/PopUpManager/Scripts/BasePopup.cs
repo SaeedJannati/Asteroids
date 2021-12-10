@@ -4,15 +4,5 @@ using UnityEngine;
 
 public class BasePopup : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  //TODO: impliment twean functionality and general aspects of pop ups here
 }

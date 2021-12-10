@@ -19,7 +19,8 @@ namespace SceneLoaderManager
 {
     public enum SceneName
     {
-        Core=0,
+        Meta=0,
+        Core=1,
         
     }
 }

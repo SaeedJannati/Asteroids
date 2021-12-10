@@ -18,6 +18,7 @@ public class MainContainer
     private static PrefabContainer prefabContainer;
     private static SceneLoader sceneLoader;
     private static GameManger gameManager;
+    private static MetaMainMenuLogic metaMainMenuLogic;
     #endregion
 
     #region properties
@@ -82,6 +83,11 @@ public class MainContainer
         get => gameManager;
     }
 
+    public static MetaMainMenuLogic MetaMainMenuLogic
+    {
+        get => metaMainMenuLogic;
+    }
+
     #endregion
 
     #region Mehtodes
@@ -143,8 +149,12 @@ public class MainContainer
     {
         gameManager = manager;
     }
+    public static void InjectMetaMainMenu(MetaMainMenuLogic logic)
+    {
+        metaMainMenuLogic = logic;
+    }
     #endregion
 
 
-   
+  
 }

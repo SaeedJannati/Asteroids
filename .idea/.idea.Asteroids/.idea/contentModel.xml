@@ -126,6 +126,18 @@
                 </e>
               </e>
             </e>
+            <e p="Meta" t="Include">
+              <e p="MetaContainer" t="Include">
+                <e p="MetaContainer.cs" t="Include" />
+              </e>
+              <e p="MetaMainMenu" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="MetaMainMenuLogic.cs" t="Include" />
+                  <e p="MetaMainMenuModel.cs" t="Include" />
+                  <e p="MetaMainMenuView.cs" t="Include" />
+                </e>
+              </e>
+            </e>
             <e p="Popups" t="Include">
               <e p="CoreMenuPopup" t="Include">
                 <e p="CoreMenuPopup.cs" t="Include" />

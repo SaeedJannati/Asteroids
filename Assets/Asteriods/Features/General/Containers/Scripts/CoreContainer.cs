@@ -6,7 +6,7 @@ using UnityEngine;
 public class CoreContainer : MonoBehaviour
 {
   #region fields
-
+  private const string prefabContainreAdderss = "Containers/PrefabContainer";
   [SerializeField] private SpaceShipMovementLogic spaceShipMovementLogic;
   [SerializeField] private PlayerInputLogic playerInputLogic;
   [SerializeField] private MovementConfinementLogic movementConfinemetLogic;
@@ -17,7 +17,7 @@ public class CoreContainer : MonoBehaviour
   [SerializeField] private PopUpManager popupManager;
   [SerializeField] private SceneLoader sceneLoader;
   [SerializeField] private GameManger gameManager;
-  private const string prefabContainreAdderss = "Containers/PrefabContainer";
+
   #endregion
 
   #region MonobehaviourCallbacks

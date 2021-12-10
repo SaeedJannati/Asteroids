@@ -26,7 +26,7 @@ public class GameManger : MonoBehaviour
 
     public void ReturnToCore()
     {
-        
+        MainContainer.SceneLoader.LoadScene(SceneName.Meta);
     }
 
     public void GameOver()
